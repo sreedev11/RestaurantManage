@@ -1,0 +1,66 @@
+﻿.User-Category-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    font-family: Arial, sans-serif;
+}
+
+    .User-Category-table th, .User-Category-table td {
+        border: 1px solid #ddd;
+        padding: 10px;
+        text-align: left;
+    }
+
+    .User-Category-table th {
+        background-color: #f4f4f4;
+        color: #333;
+        font-weight: bold;
+    }
+
+    .User-Category-table tbody tr:nth-child(even) {
+        background-color: #f9f9f9;
+    }
+
+    .User-Category-table tbody tr:hover {
+        background-color: #f1f1f1;
+    }
+
+.User-Category-link {
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+    background-color: #28a745;
+    padding: 8px 15px;
+    border-radius: 5px;
+    margin-right: 5px;
+}
+
+    .User-Category-link:hover {
+        background-color: #218838;
+        color: white;
+    }
+
+.User-Category-button {
+    background-color: #dc3545;
+    border: none;
+    color: white;
+    padding: 8px 15px;
+    font-size: 14px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+    .User-Category-button:hover {
+        background-color: #c82333;
+    }
+
+.User-Category-no-logo {
+    font-style: italic;
+    color: #888;
+}
+
+.User-Category-name {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #333;
+}

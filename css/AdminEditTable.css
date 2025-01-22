@@ -1,0 +1,89 @@
+﻿
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f9f9f9;
+    margin: 0;
+    padding: 0;
+}
+
+h2.adminedittable-heading {
+    text-align: center;
+    color: #333;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+
+.adminedittable-form {
+    max-width: 600px;
+    background-color: #fff;
+    margin: 0 auto;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+
+.adminedittable-form-group {
+    margin-bottom: 20px;
+}
+
+
+.adminedittable-label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 8px;
+    color: #555;
+}
+
+.adminedittable-input,
+.adminedittable-select {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    transition: border-color 0.3s ease;
+}
+
+    .adminedittable-input:focus,
+    .adminedittable-select:focus {
+        border-color: #007bff;
+        outline: none;
+    }
+
+.adminedittable-btn {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    font-size: 18px;
+    font-weight: bold;
+    color: #fff;
+    background-color: green;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+    .adminedittable-btn:hover {
+        background-color: darkgreen;
+    }
+
+.adminedittable-cancel-btn {
+    display: inline-block;
+    margin-top: 20px;
+    background-color:green;
+    padding:10px 40px;
+    border-radius:10px;
+    text-align: center;
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+}
+
+    .adminedittable-cancel-btn:hover {
+        background-color:darkgreen;
+    }
+

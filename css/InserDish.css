@@ -1,0 +1,85 @@
+﻿.InsertDishStyle-Heading {
+    text-align: center;
+    margin: 20px 0;
+    font-size: 2em;
+    color: #333;
+}
+
+.InsertDishStyle-Form {
+    max-width: 500px;
+    margin: 0 auto;
+    background-color: #f9f9f9;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+    .InsertDishStyle-Form div {
+        margin-bottom: 15px;
+    }
+
+.InsertDishStyle-Label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #555;
+}
+
+.InsertDishStyle-Select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 1em;
+}
+
+.InsertDishStyle-Input {
+    width: 95%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 1em;
+}
+
+.InsertDishStyle-Button {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    font-size: 1em;
+    color: #fff;
+    background: linear-gradient(90deg,blue,purple);
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+    .InsertDishStyle-Button:hover {
+        background: linear-gradient(90deg,purple,blue);
+    }
+
+.InsertDishStyle-Link {
+    display: inline-block;
+    background-color: green;
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    padding: 8px 12px;
+    border-radius: 4px;
+    margin-top: 10px;
+    transition: background-color 0.3s ease;
+}
+
+    .InsertDishStyle-Link:hover {
+        background-color: forestgreen;
+    }
+
+.InsertDishStyle-LinksContainer {
+    text-align: center;
+    margin-top: 20px;
+}
+
+    .InsertDishStyle-LinksContainer a {
+        margin: 0 10px;
+    }

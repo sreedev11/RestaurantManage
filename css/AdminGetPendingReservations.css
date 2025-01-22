@@ -1,0 +1,77 @@
+﻿h2 {
+    text-align: center;
+    margin: 20px 0;
+    font-size: 2em;
+    color: #333;
+}
+
+.table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px auto;
+    font-size: 1em;
+    text-align: left;
+}
+
+    .table th, .table td {
+        border: 1px solid #ddd;
+        padding: 10px 15px;
+    }
+
+    .table th {
+        background-color: #f4f4f4;
+        color: #333;
+        text-align: center;
+    }
+
+    .table tr:nth-child(even) {
+        background-color: #f9f9f9;
+    }
+
+    .table tr:hover {
+        background-color: #f1f1f1;
+    }
+
+.btn {
+    padding: 8px 12px;
+    border: none;
+    border-radius: 5px;
+    color: #fff;
+    cursor: pointer;
+    margin: 0 5px;
+}
+
+.btn-success {
+    background-color: #28a745;
+}
+
+    .btn-success:hover {
+        background-color: #218838;
+    }
+
+.btn-danger {
+    background-color: #dc3545;
+}
+
+    .btn-danger:hover {
+        background-color: #c82333;
+    }
+
+.AllUsers-back-btn-container {
+    text-align: center;
+    margin: 20px 0;
+}
+
+.AllUsers-register-btn {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: green;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 1em;
+}
+
+    .AllUsers-register-btn:hover {
+        background-color: forestgreen;
+    }

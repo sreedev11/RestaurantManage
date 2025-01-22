@@ -1,0 +1,416 @@
+﻿
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden; 
+}
+
+/* Navbar styling */
+.navbar {
+    background-color: black;
+    padding: 15px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.navbar-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.navbar-brand {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: white;
+}
+
+
+
+.logoclass {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+.navbar-brand span {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.navbar-nav {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+    .navbar-nav .nav-item {
+        margin-left: 20px;
+    }
+
+    .navbar-nav .nav-link {
+        text-decoration: none;
+        color: white;
+        font-size: 16px;
+        padding: 8px 12px;
+        border-radius: 5px;
+        transition: background-color 0.3s, color 0.3s;
+    }
+
+        .navbar-nav .nav-link:hover {
+            background-color: yellow;
+            color: black;
+        }
+
+.footer {
+    background-color: black;
+    color: white;
+    text-align: center;
+    padding: 20px;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+}
+
+    .footer .contact-info {
+        margin-bottom: 10px;
+    }
+
+/* Main content styling */
+main {
+    padding: 40px 20px;
+    text-align: center;
+    background-color: #f4f4f4;
+}
+
+/* Responsiveness */
+@media (max-width: 768px) {
+    .navbar-container {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .navbar-nav {
+        flex-direction: column;
+        align-items: flex-start;
+        margin-top: 10px;
+    }
+
+        .navbar-nav .nav-item {
+            margin-left: 0;
+            margin-bottom: 10px;
+        }
+
+    .logoclass {
+        width: 40px;
+    }
+
+    .navbar-brand span {
+        font-size: 20px;
+    }
+}
+
+
+
+
+/* siggn up page style*/
+
+/* General styles */
+.signuppage-container {
+    width: 700px;
+    padding: 20px;
+    margin: 50px auto;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.signupform-group {
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+    .signupform-group label {
+        display: block;
+        font-weight: bold;
+        margin-bottom: 5px;
+    }
+
+    .signupform-group input {
+        width: 97%;
+        padding: 10px;
+        font-size: 14px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+    }
+
+
+.gender-options {
+    display: flex;
+    gap: 1px;
+    align-items: center;
+}
+
+    .gender-options label {
+        margin-left: -140px;
+    }
+
+
+
+
+.SignuperrorClass {
+    color: red;
+    font-size: 12px;
+    margin-top: 5px;
+    display: block;
+}
+
+.signupsubmit-button {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    color: white;
+    background-color: #007bff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+    .signupsubmit-button:hover {
+        background-color: #0056b3;
+    }
+
+
+    /* AllUser Styles */
+
+
+.AllUsers-heading {
+    font-size: 2rem;
+    color: #333;
+    margin-bottom: 20px;
+    text-align: center;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+
+.AllUsers-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    margin-bottom: 30px;
+}
+
+    .AllUsers-table th, .AllUsers-table td {
+        padding: 12px;
+        text-align: left;
+        border: 1px solid #ddd;
+    }
+
+    .AllUsers-table th {
+        background-color: #f2f2f2;
+        color: #333;
+        font-weight: bold;
+    }
+
+    .AllUsers-table tr:nth-child(even) {
+        background-color: #f9f9f9;
+    }
+
+    .AllUsers-table tr:hover {
+        background-color: #eaeaea;
+    }
+
+
+.AllUsers-delete-btn {
+    padding: 8px 15px;
+    background-color: red;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+    .AllUsers-delete-btn:hover {
+        background-color: darkred;
+    }
+
+
+.AllUsers-register-btn {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: green;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+    .AllUsers-register-btn:hover {
+        background-color: darkgreen;
+    }
+
+.AllUserButtonContainer{
+    display:flex;
+    justify-content:center;
+}
+.AllUserbuttonAlign{
+    display:flex;
+    flex-direction:column;
+    width:300px;
+}
+
+/* styles for Delete User */
+
+
+.DeleteUser-heading {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+
+.DeleteUser-warning {
+    font-size: 18px;
+    color: #d9534f; 
+    margin-bottom: 20px;
+}
+
+
+.DeleteUser-card {
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 20px;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+
+.DeleteUser-detail {
+    margin-bottom: 15px;
+}
+
+
+.DeleteUser-label {
+    font-weight: bold;
+    margin-bottom: 5px;
+    display: inline-block;
+    width: 150px;
+}
+
+.DeleteUser-value {
+    font-size: 16px;
+    color: #333;
+}
+
+.DeleteUser-delete-btn {
+    padding: 10px 20px;
+    background-color: #dc3545; 
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+    margin-right: 10px;
+}
+
+    .DeleteUser-delete-btn:hover {
+        background-color: #c82333; 
+    }
+
+.DeleteUser-cancel-btn {
+    padding: 10px 20px;
+    background-color: #007bff; 
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+    .DeleteUser-cancel-btn:hover {
+        background-color: #0056b3; 
+    }
+
+
+.DeleteUser-actions {
+    text-align: center;
+    margin-top: 20px;
+}
+
+
+/*Admin edit form styles */
+
+.UserEditForm {
+    width: 100%;
+    max-width: 500px;
+    margin: 0 auto;
+    background-color: #f9f9f9;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.UserEditFormGroup {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 15px;
+}
+
+.UserEditLabel {
+    font-size: 16px;
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: #333;
+    text-align: left;
+}
+
+.UserEditInput {
+    padding: 8px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+    .UserEditInput:focus {
+        border-color: #007bff;
+        outline: none;
+    }
+
+.UserEditRadioGroup {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.UserEditButton {
+    padding: 10px 15px;
+    font-size: 16px;
+    font-weight: bold;
+    color: white;
+    background-color: #007bff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+    .UserEditButton:hover {
+        background-color: #0056b3;
+    }
+
+
+
+

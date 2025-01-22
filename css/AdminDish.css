@@ -1,0 +1,86 @@
+﻿.AdminDishView-category-name {
+    font-size: 2rem;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.AdminDishView-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    font-family: Arial, sans-serif;
+}
+
+    .AdminDishView-table th, .AdminDishView-table td {
+        border: 1px solid #ddd;
+        padding: 10px;
+        text-align: left;
+    }
+
+    .AdminDishView-table th {
+        background-color: #f4f4f4;
+        font-weight: bold;
+        color: #333;
+    }
+
+    .AdminDishView-table tbody tr:nth-child(even) {
+        background-color: #f9f9f9;
+    }
+
+    .AdminDishView-table tbody tr:hover {
+        background-color: #f1f1f1;
+    }
+
+    .AdminDishView-table .text-center {
+        text-align: center;
+        color: #888;
+        font-style: italic;
+    }
+
+.AdminDishView-actions {
+    display: flex;
+    gap: 10px;
+}
+
+    .AdminDishView-actions a {
+        text-decoration: none;
+        color: white;
+        background-color: green;
+        padding: 5px 10px;
+        border-radius: 5px;
+        font-size: 0.9rem;
+    }
+
+        .AdminDishView-actions a:hover {
+            background-color: forestgreen;
+        }
+
+    .AdminDishView-actions button {
+        background-color: #dc3545;
+        color: white;
+        border: none;
+        padding: 5px 10px;
+        border-radius: 5px;
+        font-size: 0.9rem;
+        cursor: pointer;
+    }
+
+        .AdminDishView-actions button:hover {
+            background-color: #c82333;
+        }
+
+.AdminDishView-back-link {
+    display: inline-block;
+    margin-top: 20px;
+    text-decoration: none;
+    color: white;
+    background-color: green;
+    padding: 10px 15px;
+    border-radius: 5px;
+}
+
+    .AdminDishView-back-link:hover {
+        background-color: forestgreen;
+    }

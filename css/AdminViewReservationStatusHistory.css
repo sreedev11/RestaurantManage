@@ -1,0 +1,58 @@
+﻿h2 {
+    text-align: center;
+    margin: 20px 0;
+    font-size: 2em;
+    color: #333;
+}
+
+.table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px auto;
+    font-size: 1em;
+    text-align: left;
+    background-color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+    .table th, .table td {
+        border: 1px solid #ddd;
+        padding: 10px 15px;
+    }
+
+    .table th {
+        background-color: #f8f9fa;
+        color: #343a40;
+        text-align: center;
+        font-weight: bold;
+    }
+
+    .table tr:nth-child(even) {
+        background-color: #f9f9f9;
+    }
+
+    .table tr:hover {
+        background-color: #f1f1f1;
+    }
+
+    .table td {
+        vertical-align: middle;
+    }
+
+.status {
+    font-weight: bold;
+    text-transform: capitalize;
+    padding: 5px 10px;
+    border-radius: 5px;
+    text-align: center;
+}
+
+    .status.Approved {
+        background-color: #28a745;
+        color: #fff;
+    }
+
+    .status.Sorry, Unavailable {
+        background-color: #dc3545;
+        color: #fff;
+    }

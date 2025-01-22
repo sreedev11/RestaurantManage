@@ -1,0 +1,257 @@
+﻿
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden; /* Hides horizontal overflow */
+}
+
+/* Navbar styling */
+.navbar {
+    background-color: black;
+    padding: 15px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.navbar-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.navbar-brand {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: white;
+}
+
+
+
+.logoclass {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+.navbar-brand span {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.navbar-nav {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+    .navbar-nav .nav-item {
+        margin-left: 20px;
+    }
+
+    .navbar-nav .nav-link {
+        text-decoration: none;
+        color: white;
+        font-size: 16px;
+        padding: 8px 12px;
+        border-radius: 5px;
+        transition: background-color 0.3s, color 0.3s;
+    }
+
+        .navbar-nav .nav-link:hover {
+            background-color: yellow;
+            color: black;
+        }
+
+/* Footer styling */
+.footer {
+    background-color: black;
+    color: white;
+    text-align: center;
+    padding: 20px;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+}
+
+    .footer .contact-info {
+        margin-bottom: 10px;
+    }
+
+/* Main content styling */
+main {
+    padding: 40px 20px;
+    text-align: center;
+    background-color: #f4f4f4;
+}
+
+/* Responsiveness */
+@media (max-width: 768px) {
+    .navbar-container {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .navbar-nav {
+        flex-direction: column;
+        align-items: flex-start;
+        margin-top: 10px;
+    }
+
+        .navbar-nav .nav-item {
+            margin-left: 0;
+            margin-bottom: 10px;
+        }
+
+    .logoclass {
+        width: 40px;
+    }
+
+    .navbar-brand span {
+        font-size: 20px;
+    }
+}
+
+/* User Edit Page Styles */
+.UserEditForm {
+    width: 100%;
+    max-width: 500px;
+    margin: 0 auto;
+    background-color: #f9f9f9;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.UserEditFormGroup {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 15px;
+}
+
+.UserEditLabel {
+    font-size: 16px;
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: #333;
+    text-align:left;
+}
+
+.UserEditInput {
+    padding: 8px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+    .UserEditInput:focus {
+        border-color: #007bff;
+        outline: none;
+    }
+
+.UserEditRadioGroup {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.UserEditButton {
+    padding: 10px 15px;
+    font-size: 16px;
+    font-weight: bold;
+    color: white;
+    background-color: #007bff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+    .UserEditButton:hover {
+        background-color: #0056b3;
+    }
+/*User Category Page Styles */
+.User-Category-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+    .User-Category-table th, .User-Category-table td {
+        border: 1px solid #ddd;
+        padding: 10px;
+    }
+
+    .User-Category-table th {
+        background-color: #f4f4f4;
+        text-align: left;
+    }
+
+.User-Category-image {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 5px;
+}
+
+.User-Category-name {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #333;
+}
+
+.User-Category-link {
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+    background: green;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.User-Category-link:hover {
+    color: black;
+ }
+
+.User-Category-no-logo {
+    font-style: italic;
+    color: #888;
+}
+/*User Dish View Styles */
+.UserDishView-category-name {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.UserDishView-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+    .UserDishView-table th, .UserDishView-table td {
+        border: 1px solid #ddd;
+        padding: 10px;
+        text-align: left;
+    }
+
+    .UserDishView-table th {
+        background-color: #f4f4f4;
+        font-size: 1.2rem;
+    }
+
+    .UserDishView-table td {
+        font-size: 1.1rem;
+    }
+
+    .UserDishView-table .text-center {
+        text-align: center;
+        font-style: italic;
+        color: #888;
+    }

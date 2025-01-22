@@ -1,0 +1,85 @@
+﻿.CategoryStyle-Heading {
+    text-align: center;
+    margin: 20px 0;
+    font-size: 2em;
+    color: #333;
+}
+
+.CategoryStyle-Form {
+    max-width: 500px;
+    margin: 0 auto;
+    background-color: #f9f9f9;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+    .CategoryStyle-Form div {
+        margin-bottom: 15px;
+    }
+
+.CategoryStyle-Label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #555;
+}
+
+.CategoryStyle-Input {
+    width: 96%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 1em;
+}
+
+.CategoryStyle-FileInput {
+    border: none;
+}
+
+.CategoryStyle-Button {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    font-size: 1em;
+    color: #fff;
+    background: linear-gradient(90deg,purple,blue);
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+    .CategoryStyle-Button:hover {
+        background: linear-gradient(90deg,blue,purple);
+    }
+
+.CategoryStyle-Error {
+    color: #d9534f;
+    font-size: 0.9em;
+}
+
+.CategoryStyle-Link {
+    display: inline-block;
+    background: green;
+    margin-top: 15px;
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    padding: 10px 15px;
+    border-radius: 4px;
+}
+
+    .CategoryStyle-Link:hover {
+        background: forestgreen;
+    }
+
+.CategoryStyle-LinksContainer {
+    text-align: center;
+    margin-top: 20px;
+}
+
+    .CategoryStyle-LinksContainer a {
+        margin: 0 10px;
+    }
