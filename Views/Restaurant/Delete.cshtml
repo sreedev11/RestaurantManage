@@ -1,0 +1,63 @@
+﻿@model RestaurantManage.Models.Registration
+
+@{
+    ViewData["Title"] = "Delete User/Admin";
+    Layout = "~/Views/Shared/AdminDashboardLayout.cshtml";
+}
+
+<h2 class="DeleteUser-heading">@ViewData["Title"]</h2>
+
+<div class="DeleteUser-warning">
+    <strong>Warning!</strong> Are you sure you want to delete this record?
+</div>
+
+<div class="DeleteUser-card">   
+        <div class="DeleteUser-detail">
+            <label for="FirstName" class="DeleteUser-label">First Name:</label>
+            <p class="DeleteUser-value">@Model.FirstName</p>
+        </div>
+
+      
+        <div class="DeleteUser-detail">
+            <label for="LastName" class="DeleteUser-label">Last Name:</label>
+            <p class="DeleteUser-value">@Model.LastName</p>
+        </div>
+
+     
+        <div class="DeleteUser-detail">
+            <label for="UserType" class="DeleteUser-label">User Type:</label>
+            <p class="DeleteUser-value">@Model.UserType</p>
+        </div>
+
+        
+        <div class="DeleteUser-detail">
+            <label for="EmailAddress" class="DeleteUser-label">Email Address:</label>
+            <p class="DeleteUser-value">@Model.EmailAddress</p>
+        </div>
+
+       
+        <div class="DeleteUser-detail">
+            <label for="PhoneNumber" class="DeleteUser-label">Phone Number:</label>
+            <p class="DeleteUser-value">@Model.PhoneNumber</p>
+        </div>
+
+        
+        <div class="DeleteUser-detail">
+            <label for="Gender" class="DeleteUser-label">Gender:</label>
+            <p class="DeleteUser-value">@Model.Gender</p>
+        </div>
+
+        
+        <div class="DeleteUser-detail">
+            <label for="Address" class="DeleteUser-label">Address:</label>
+            <p class="DeleteUser-value">@Model.Address</p>
+        </div>
+    <form asp-action="DeleteConfirmed" method="post">
+        @Html.AntiForgeryToken()
+        <input type="hidden" name="id" value="@Model.ID" />
+        <div class="DeleteUser-actions">
+            <button type="submit" class="DeleteUser-delete-btn">Delete</button>
+            <a href="@Url.Action("AllUsers", "Restaurant")" class="DeleteUser-cancel-btn">Cancel</a>
+        </div>
+    </form>
+</div>

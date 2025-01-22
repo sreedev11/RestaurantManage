@@ -1,0 +1,52 @@
+﻿@model List<RestaurantManage.Models.AddTable>
+@{
+    Layout = "~/Views/Shared/AdminDashboardLayout.cshtml";
+}
+<link href="~/css/adminviewtable.css" rel="stylesheet" />
+
+<a href="@Url.Action("AdminAddTable","Restaurant")" class="adminviewTable-add-btn">Add New Table</a>
+
+<h2 class="adminviewTable-heading">Manage Tables</h2>
+
+@if (TempData["Message"] != null)
+{
+    <div class="adminviewTable-alert adminviewTable-success">
+        @TempData["Message"]
+    </div>
+}
+@if (TempData["Error"] != null)
+{
+    <div class="adminviewTable-alert adminviewTable-error">
+        @TempData["Error"]
+    </div>
+}
+
+<table class="adminviewTable-table">
+    <thead class="adminviewTable-thead">
+        <tr>
+            <th class="adminviewTable-th">Table Name</th>
+            <th class="adminviewTable-th">Table Type</th>
+            <th class="adminviewTable-th">Amount</th>
+            <th class="adminviewTable-th">Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var table in Model)
+        {
+            <tr class="adminviewTable-tr">
+                <td class="adminviewTable-td">@table.TableName</td>
+                <td class="adminviewTable-td">@table.TableType</td>
+                <td class="adminviewTable-td">@table.Amount</td>
+                <td class="adminviewTable-td">
+                    <a href="@Url.Action("AdminEditTable", new { tableId = table.TableId })" class="adminviewTable-btn adminviewTable-edit-btn">Edit</a>
+                    <form method="post" asp-action="AdminDeleteTable" style="display:inline;">
+                        <input type="hidden" name="tableId" value="@table.TableId" />
+                        <button type="submit" class="adminviewTable-btn adminviewTable-delete-btn" onclick="return confirm('Are you sure you want to delete this table?');">Delete</button>
+                    </form>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+

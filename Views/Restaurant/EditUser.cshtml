@@ -1,0 +1,126 @@
+﻿@model RestaurantManage.Models.Registration
+
+@{
+    ViewData["Title"] = "User Profile";
+    Layout = "~/Views/Shared/UserDashboardLayout.cshtml";
+}
+
+<h2>@ViewData["Title"]</h2>
+
+<form asp-action="EditUser" method="post" class="UserEditForm">
+    <input type="hidden" id="ID" name="ID" value="@Model.ID" />
+
+    <div class="UserEditFormGroup">
+        <label for="FirstName" class="UserEditLabel">First Name</label>
+        <input type="text" id="FirstName" name="FirstName" class="UserEditInput" value="@Model.FirstName" required />
+        <span class="error-message" id="FirstNameError"></span>
+    </div>
+    <div class="UserEditFormGroup">
+        <label for="LastName" class="UserEditLabel">Last Name</label>
+        <input type="text" id="LastName" name="LastName" class="UserEditInput" value="@Model.LastName" required />
+        <span class="error-message" id="LastNameError"></span>
+    </div>
+    <div class="UserEditFormGroup">
+        <label for="DateOfBirth" class="UserEditLabel">Date of Birth</label>
+        <input type="date" id="DateOfBirth" name="DateOfBirth" class="UserEditInput" value="@Model.DateOfBirth.ToString("yyyy-MM-dd")" required max="@DateTime.Now.AddYears(-18).ToString("yyyy-MM-dd")" />
+        <span class="error-message" id="DateOfBirthError"></span>
+    </div>
+
+    <div class="UserEditFormGroup">
+        <label class="UserEditLabel">Gender</label>
+        <div class="UserEditRadioGroup">
+            <input type="radio" id="Male" name="Gender" value="Male" @(Model.Gender == "Male" ? "checked" : "") />
+            <label for="Male">Male</label>
+            <input type="radio" id="Female" name="Gender" value="Female" @(Model.Gender == "Female" ? "checked" : "") />
+            <label for="Female">Female</label>
+            <input type="radio" id="Other" name="Gender" value="Other" @(Model.Gender == "Other" ? "checked" : "") />
+            <label for="Other">Other</label>
+        </div>
+    </div>
+
+    <div class="UserEditFormGroup">
+        <label for="PhoneNumber" class="UserEditLabel">Phone Number</label>
+        <input type="text" id="PhoneNumber" name="PhoneNumber" class="UserEditInput" value="@Model.PhoneNumber" required />
+        <span class="error-message" id="PhoneNumberError"></span>
+    </div>
+    <div class="UserEditFormGroup">
+        <label for="EmailAddress" class="UserEditLabel">Email Address</label>
+        <input type="email" id="EmailAddress" name="EmailAddress" class="UserEditInput" value="@Model.EmailAddress" required />
+    </div>
+    <div class="UserEditFormGroup">
+        <label for="Address" class="UserEditLabel">Address</label>
+        <input type="text" id="Address" name="Address" class="UserEditInput" value="@Model.Address" required />
+        <span class="error-message" id="AddressError"></span>
+    </div>
+    <div class="UserEditFormGroup">
+        <label for="Username" class="UserEditLabel">Username</label>
+        <input type="text" id="Username" name="Username" class="UserEditInput" value="@Model.Username" required />
+        <span class="error-message" id="UsernameError"></span>
+    </div>
+
+    <input type="hidden" id="Password" name="Password" value="@Model.Password" />
+    <input type="hidden" id="ConfirmPassword" name="ConfirmPassword" value="@Model.Password" />
+    <input type="hidden" name="UserType" value="user" />
+
+    <div class="UserEditFormGroup">
+        <button type="submit" class="UserEditButton">Update</button>
+    </div>
+</form>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const fields = {
+            FirstName: {
+                validate: (value) => /^[a-zA-Z]+$/.test(value),
+                message: "First Name cannot be empty or contain numbers."
+            },
+            LastName: {
+                validate: (value) => /^[a-zA-Z]+$/.test(value),
+                message: "Last Name cannot be empty or contain numbers."
+            },
+            DateOfBirth: {
+                validate: (value) => {
+                    const dob = new Date(value);
+                    const today = new Date();
+                    const age = today.getFullYear() - dob.getFullYear();
+                    const isValidDate = dob <= today && age >= 18;
+                    return isValidDate;
+                },
+                message: "Date of Birth must be valid, not in the future, and age must be at least 18."
+            },
+            PhoneNumber: {
+                validate: (value) => /^[0-9]{10}$/.test(value),
+                message: "Phone Number must be a 10-digit number."
+            },
+            Address: {
+                validate: (value) => value.trim() !== "",
+                message: "Address cannot be empty."
+            },
+            Username: {
+                validate: (value) => value.trim() !== "",
+                message: "Username cannot be empty."
+            }
+        };
+
+        Object.keys(fields).forEach((key) => {
+            const input = document.getElementById(key);
+            const errorSpan = document.getElementById(`${key}Error`);
+
+            if (input) {
+                input.addEventListener('focusout', function () {
+                    const value = input.value;
+                    const { validate, message } = fields[key];
+
+                    if (!validate(value)) {
+                        errorSpan.textContent = message;
+                        errorSpan.style.color = "red";
+                        input.classList.add('error');
+                    } else {
+                        errorSpan.textContent = "";
+                        input.classList.remove('error');
+                    }
+                });
+            }
+        });
+    });
+</script>

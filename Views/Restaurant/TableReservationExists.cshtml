@@ -1,0 +1,17 @@
+﻿@{
+    Layout = "~/Views/Shared/UserDashboardLayout.cshtml";
+}
+<link href="~/css/tablereservationexists.css" rel="stylesheet" />
+
+
+<div class="card">
+    <img src="~/images/sorry.png" alt="Table Booking Image" />
+    <h1>Table Already Booked</h1>
+    <p>
+        The table you selected is already booked for the chosen date and time.
+        Please select a different date, time, or table and try again.
+    </p>
+    <form asp-action="UserHome">
+        <button type="submit">OK</button>
+    </form>
+</div>

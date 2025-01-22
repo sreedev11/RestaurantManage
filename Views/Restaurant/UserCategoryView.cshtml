@@ -1,0 +1,36 @@
+﻿@model IEnumerable<RestaurantManage.Models.Category>
+
+@{
+    Layout = "~/Views/Shared/UserDashboardLayout.cshtml";
+}
+<h2>Please Select the Category</h2>
+<table class="User-Category-table">
+    <thead>
+        <tr>
+            <th>Logo</th>
+            <th>Category Name</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var category in Model)
+        {
+            <tr>
+                <td>
+                    @if (category.Logo != null)
+                    {
+                        <img src="data:image/png;base64,@Convert.ToBase64String(category.Logo)" alt="Logo" class="User-Category-image" />
+                    }
+                    else
+                    {
+                        <span class="User-Category-no-logo">No Logo</span>
+                    }
+                </td>
+                <td class="User-Category-name">@category.CategoryName</td>
+                <td>
+                    <a href="@Url.Action("UserViewDish", "Restaurant", new { id = category.Id })" class="User-Category-link">View Dishes</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

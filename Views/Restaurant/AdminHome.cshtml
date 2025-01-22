@@ -1,0 +1,31 @@
+﻿@model Registration
+@{
+    Layout = "~/Views/Shared/AdminDashboardLayout.cshtml";
+}
+<link href="~/css/AdminHome.css" rel="stylesheet" />
+
+
+<h1 class="welcome-heading">Welcome, @Model.FirstName @Model.LastName!</h1>
+
+<div class="card-container">
+    <div class="card">
+        <img src="~/images/mandi.png" alt="Card 1 Image" class="card-image" />
+        <div class="card-content">
+            <a href="@Url.Action("ViewAllCategory", "Restaurant")" class="card-button">Manage Dishes</a>
+        </div>
+    </div>
+
+    <div class="card">
+        <img src="~/images/table.png" alt="Card 2 Image" class="card-image" />
+        <div class="card-content">
+            <a href="@Url.Action("AdminGetPendingReservations", "Restaurant")" class="card-button">See All Reservations</a>
+        </div>
+    </div>
+
+    <div class="card">
+        <img src="~/images/users.png" alt="Card 3 Image" class="card-image" />
+        <div class="card-content">
+            <a href="@Url.Action("AllUsers", "Restaurant")" class="card-button">See All Users</a>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,151 @@
+﻿@model RestaurantManage.Models.Reservation
+
+@{
+    ViewData["Title"] = "Create Reservation";
+    Layout = "~/Views/Shared/UserDashboardLayout.cshtml";
+}
+
+<h2>Table Reservation</h2>
+
+<form asp-action="CreateReservation" method="post" class="UserReservationstyles-form">
+    <h2>Book our <a href="@Url.Action("CreateReservationAC","Restaurant")">  Ac Tables</a></h2>
+    <div class="form-group">
+        <label asp-for="ReserveDate">Choose Date</label>
+        <input asp-for="ReserveDate" class="form-control" type="date" min="@DateTime.Now.ToString("yyyy-MM-dd")" id="ReserveDate" />
+        <span asp-validation-for="ReserveDate" class="text-danger" id="ReserveDateError"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="ReserveTime">Choose Time</label>
+        <select asp-for="ReserveTime" class="form-control" id="ReserveTime">
+            <option value="10.00AM - 11.00AM">10.00AM - 11.00AM</option>
+            <option value="11.00AM - 12.00PM">11.00AM - 12.00PM</option>
+            <option value="12.00PM - 01.00PM">12.00PM - 01.00PM</option>
+            <option value="01.00PM - 02.00PM">01.00PM - 02.00PM</option>
+            <option value="02.00PM - 03.00PM">02.00PM - 03.00PM</option>
+            <option value="03.00PM - 04.00PM">03.00PM - 04.00PM</option>
+            <option value="04.00PM - 05.00PM">04.00PM - 05.00PM</option>
+            <option value="05.00PM - 06.00PM">05.00PM - 06.00PM</option>
+            <option value="06.00PM - 07.00PM">06.00PM - 07.00PM</option>
+            <option value="07.00PM - 08.00PM">07.00PM - 08.00PM</option>
+            <option value="08.00PM - 09.00PM">08.00PM - 09.00PM</option>
+            <option value="09.00PM - 10.00PM">09.00PM - 10.00PM</option>
+        </select>
+        <span asp-validation-for="ReserveTime" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Number_of_Persons">Number of Persons</label>
+        <input asp-for="Number_of_Persons" class="form-control" type="number" id="Number_of_Persons" />
+        <span asp-validation-for="Number_of_Persons" class="text-danger" id="NumberOfPeopleError"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Table">Select Table</label>
+        <select asp-for="Table" class="form-control" id="Table">
+            @foreach (var table in ViewBag.NonACTables)
+            {
+                <option value="@table.TableName">@table.TableName</option>
+            }
+        </select>
+        <span asp-validation-for="Table" class="text-danger"></span>
+    </div>
+
+    <input type="hidden" asp-for="Status" value="Pending" />
+    <input type="hidden" asp-for="TableType" value="NON-AC" />
+
+    <input type="hidden" asp-for="ID" value="@ViewBag.UserID" />
+    <div class="form-group">
+        <label asp-for="Amount">Advance Amount</label>
+        <input asp-for="Amount" class="form-control" type="number" id="Amount"
+               value="@(((List<RestaurantManage.Models.AddTable>)ViewBag.NonACTables).FirstOrDefault()?.Amount ?? 0)" readonly />
+    </div>
+
+    <button type="submit" class="btn btn-success UserReservationstyles-submit">Submit</button>
+</form>
+
+    <style>
+        .UserReservationstyles-form {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f9f9f9;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .UserReservationstyles-form .form-group {
+            display: flex;
+            flex-direction: column;
+        }
+
+            .UserReservationstyles-form .form-group label {
+                text-align: left;
+                margin-bottom: 5px;
+            }
+
+        .UserReservationstyles-form .form-control {
+            width: 100%;
+            max-width: 400px;
+            margin: 0 auto;
+            box-sizing: border-box;
+            height: 40px;
+            border-radius: 10px;
+        }
+
+        .UserReservationstyles-submit {
+            background-color: green;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            font-size: 16px;
+            width: 70%;
+            margin-top:10px;
+        }
+
+            .UserReservationstyles-submit:hover {
+                background-color: darkgreen;
+            }
+
+        .text-danger {
+            color: red;
+            display:block;
+        }
+    </style>
+
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const reserveDate = document.getElementById('ReserveDate');
+            const numberOfPeople = document.getElementById('Number_of_Persons');
+            const reserveDateError = document.getElementById('ReserveDateError');
+            const numberOfPeopleError = document.getElementById('NumberOfPeopleError');
+
+            reserveDate.addEventListener('change', function () {
+                const selectedDate = new Date(reserveDate.value);
+                const today = new Date();
+
+                if (selectedDate < today) {
+                    reserveDateError.textContent = 'You cannot select a past date.';
+                    reserveDate.classList.add('error');
+                } else {
+                    reserveDateError.textContent = '';
+                    reserveDate.classList.remove('error');
+                }
+            });
+
+            numberOfPeople.addEventListener('focusout', function () {
+                if (numberOfPeople.value.trim() === "") {
+                    numberOfPeopleError.textContent = 'Number of persons cannot be empty.';
+                    numberOfPeople.classList.add('error');
+                } else {
+                    numberOfPeopleError.textContent = '';
+                    numberOfPeople.classList.remove('error');
+                }
+            });
+        });
+    </script>
+}

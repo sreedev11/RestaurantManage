@@ -1,0 +1,33 @@
+﻿@model RestaurantManage.Models.AddTable
+@{
+    Layout = "~/Views/Shared/AdminDashboardLayout.cshtml";
+}
+<link href="~/css/adminedittable.css" rel="stylesheet" />
+
+<h2 class="adminedittable-heading">Edit Table</h2>
+
+<form asp-action="AdminEditTable" method="post" class="adminedittable-form">
+    <div class="adminedittable-form-group">
+        <input type="hidden" name="TableId" value="@Model.TableId" />
+        <label for="TableName" class="adminedittable-label">Table Name</label>
+        <input type="text" name="TableName" id="TableName" value="@Model.TableName" required class="adminedittable-input" />
+    </div>
+    <div class="adminedittable-form-group">
+        <label for="TableType" class="adminedittable-label">Table Type</label>
+        <select name="TableType" id="TableType" required class="adminedittable-select">
+            <option value="NON-AC">NON-AC</option>
+            <option value="AC">AC</option>
+        </select>
+    </div>
+    <div class="adminedittable-form-group">
+        <label for="Amount" class="adminedittable-label">Advance Amount</label>
+        <select name="Amount" id="Amount" required class="adminedittable-select">
+            <option value="100">100</option>
+            <option value="200">200</option>
+        </select>
+    </div>
+    <button type="submit" class="adminedittable-btn">Update</button>
+</form>
+
+<a href="@Url.Action("AdminViewTable", "Restaurant")" class="adminedittable-cancel-btn">Cancel</a>
+

@@ -1,0 +1,82 @@
+﻿@model IEnumerable<RestaurantManage.Models.UserReservationStatusViewModel>
+
+@{
+    ViewData["Title"] = "Your Reservation Status";
+    Layout = "~/Views/Shared/UserDashboardLayout.cshtml";
+}
+<link href="~/css/userreservationstatus.css" rel="stylesheet" />
+
+<h2 class="page-title">Your Reservation Status</h2>
+<div class="ReservationButtonClass">
+    <a href="@Url.Action("CreateReservation","Restaurant")" class="btn-book-new-table">Book New Table</a>
+</div>
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Reserve Date</th>
+            <th>Reserve Time</th>
+            <th>Number of Persons</th>
+            <th>Table Name</th>
+            <th>Type</th>
+            <th>Amount Paid</th>
+            <th>Status</th>
+            <th colspan="2">Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var reservation in Model)
+        {
+            <tr>
+                <td>@reservation.ReserveDate.ToString("yyyy-MM-dd")</td>
+                <td>@reservation.ReserveTime</td>
+                <td>@reservation.Number_of_Persons</td>
+                <td>@reservation.Table_Name</td>
+                <td>@reservation.TableType</td>
+                <td>@reservation.Amount</td>
+                <td>@reservation.Status</td>
+                <td>
+                    @if (reservation.Status == "Pending" || reservation.Status == "Approved")
+                    {
+                        <form asp-action="UserCancelReservation" method="post">
+                            <input type="hidden" name="reserveId" value="@reservation.ReserveId" />
+                            <button type="submit" class="btn btn-danger">Cancel Reservation</button>
+                        </form>
+                    }
+                </td>
+                <td>
+                    @if (reservation.Status == "Approved")
+                    {
+                        <a href="@Url.Action("UserCategoryView","Restaurant")">View Our Dishes</a>
+                    }
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+<style>
+    .ReservationButtonClass {
+        display: flex;
+        justify-content: flex-end;
+        margin-bottom: 20px;
+    }
+
+    .btn-book-new-table {
+        display: inline-block;
+        padding: 10px 20px;
+        font-size: 16px;
+        color: #fff;
+        background-color: #28a745;
+        text-decoration: none;
+        border: none;
+        border-radius: 5px;
+        transition: background-color 0.3s ease;
+    }
+
+        .btn-book-new-table:hover {
+            background-color:forestgreen;
+            text-decoration: none;
+            color:white;
+        }
+</style>

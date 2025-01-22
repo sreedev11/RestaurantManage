@@ -1,0 +1,33 @@
+﻿@model RestaurantManage.Models.Category
+
+@{
+    ViewData["Title"] = "Add New Category";
+    Layout = "~/Views/Shared/AdminDashboardLayout.cshtml";
+}
+<link href="~/css/insertcategory.css" rel="stylesheet" />
+
+<h2 class="CategoryStyle-Heading">@ViewData["Title"]</h2>
+
+<form asp-action="InsertCategory" method="post" enctype="multipart/form-data" class="CategoryStyle-Form">
+    @Html.AntiForgeryToken()
+
+    <div>
+        <label for="CategoryName" class="CategoryStyle-Label">Category Name</label>
+        <input type="text" id="CategoryName" name="CategoryName" value="@Model?.CategoryName" required class="CategoryStyle-Input" />
+        @Html.ValidationMessageFor(model => model.CategoryName, "", new { @class = "CategoryStyle-Error" })
+    </div>
+
+    <div>
+        <label for="logo" class="CategoryStyle-Label">Logo</label>
+        <input type="file" id="logo" name="logo" accept="image/*" class="CategoryStyle-FileInput" />
+    </div>
+
+    <button type="submit" class="CategoryStyle-Button">Insert Category</button>
+
+    @Html.ValidationSummary(true, "", new { @class = "CategoryStyle-Error" })
+</form>
+
+<div class="CategoryStyle-LinksContainer">
+    <a href="@Url.Action("InsertDish", "Restaurant")" class="CategoryStyle-Link">Add New Dish</a>
+    <a href="@Url.Action("ViewAllcategory", "Restaurant")" class="CategoryStyle-Link">Back</a>
+</div>

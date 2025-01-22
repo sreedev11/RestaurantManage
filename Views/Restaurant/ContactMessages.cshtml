@@ -1,0 +1,41 @@
+﻿@model IEnumerable<RestaurantManage.Models.Contact>
+
+@{
+    Layout = "~/Views/Shared/AdminDashboardLayout.cshtml";
+}
+
+<h2 class="AllUsers-heading">User Messages</h2>
+
+<table class="AllUsers-table">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Phone Number</th>
+            <th>Message</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var contact in Model)
+        {
+            <tr>
+                <td>@contact.Name</td>
+                <td>@contact.Email</td>
+                <td>@contact.PhoneNumber</td>
+                <td>@contact.Message</td>
+                <td>
+                    <form asp-action="DeleteContactMessage" method="post">
+                        <input type="hidden" name="id" value="@contact.Id" />
+                        <button type="submit" class="AllUsers-delete-btn">Delete</button>
+                    </form>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<!-- Back Button -->
+<div class="AllUsers-back-btn-container">
+    <a href="@Url.Action("AdminHome", "Restaurant")" class="AllUsers-register-btn">Back</a>
+</div>

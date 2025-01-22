@@ -1,0 +1,99 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+    Layout = "~/Views/Shared/HomeLayout.cshtml";
+}
+
+<style>
+    .AboutUs-card-container {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px;
+        justify-content: center;
+        margin-top: 20px;
+    }
+
+    .AboutUs-card {
+        width: 250px;
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        overflow: hidden;
+        text-align: center;
+        background-color: #fff;
+    }
+
+        .AboutUs-card img {
+            width: 100%;
+            height: auto;
+        }
+
+    .AboutUs-card-content {
+        padding: 15px;
+    }
+
+        .AboutUs-card-content h3 {
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+        }
+
+        .AboutUs-card-content p {
+            font-size: 0.9rem;
+            color: #555;
+        }
+
+       h1{
+            margin-top:-30px;
+        }
+</style>
+
+    <div class="Aboutus-container">
+        <h1>About Us</h1>
+        <div class="Aboutus-box">
+            <h2>We Focus on</h2>
+            <p>Provide the best services to our clients and bring excellence in everything we do.</p>
+        </div>
+        <div class="Aboutus-box">
+            <h2>Our Team</h2>
+            <p>We are a group of passionate and dedicated individuals with expertise in diverse fields. Our team's collaboration and commitment drive our success.</p>
+        </div>
+        <div class="Aboutus-box">
+            <h2>Why Choose Us</h2>
+            <p>With 4 years of experience and a customer-first approach, we are here to ensure your satisfaction. Quality, trust, and excellence are the pillars of our success.</p>
+        </div>
+        <div class="Aboutus-box">
+            <h2>Contact Us</h2>
+            <p>Sreedev D & Co Pvt Ltd. | B-39, 1st Floor</p>
+            <p>Middle Circle, Connaught Place, New Delhi-110001, India</p>
+            <p>Support: 7290068900 | CIN: U27205DL2009PTC190441</p>
+            <a href="@Url.Action("Contact", "Restaurant")"><button class="Aboutus-button">Or message us</button></a>
+        </div>
+    <h2>Meet our Team</h2>
+        <div class="AboutUs-card-container">
+            
+            <div class="AboutUs-card">
+                <img src="/images/Screenshot 2024-12-30 234322.png">
+                <div class="AboutUs-card-content">
+                    <h3>Founder</h3>
+                    <p>Alex Chandichan</p>
+                </div>
+            </div>
+
+            <div class="AboutUs-card">
+                <img src="/images/Screenshot 2024-12-30 234407.png">
+                <div class="AboutUs-card-content">
+                    <h3>Manager</h3>
+                    <p>Thomas Zacaria</p>
+                </div>
+            </div>
+
+            <div class="AboutUs-card">
+                <img src="/images/Screenshot 2024-12-30 234258.png">
+                <div class="AboutUs-card-content">
+                    <h3>Branch Head</h3>
+                    <p>Sunny Wayne</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+

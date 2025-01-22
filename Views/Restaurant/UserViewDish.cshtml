@@ -1,0 +1,58 @@
+﻿@model IEnumerable<RestaurantManage.Models.Dish>
+@{
+    Layout = "~/Views/Shared/UserDashboardLayout.cshtml";
+    string categoryName = ViewBag.CategoryName ?? "Category";
+}
+<style>
+    .BackButton{
+        background:green;
+        padding:10px 30px;
+        color:white;
+        margin-bottom:80px;
+        border-radius:10px;
+        text-align:center;
+    }
+
+    .BackButton:hover{
+        background: forestgreen;
+        
+    }
+
+    .button-class{
+        margin-top:40px;
+    }
+    a{
+        text-decoration:none;
+    }
+</style>
+<h2 class="UserDishView-category-name">@categoryName</h2>
+
+<table class="UserDishView-table">
+    <thead>
+        <tr>
+            <th>Dish Name</th>
+            <th>Price (Rupees)</th>
+        </tr>
+    </thead>
+    <tbody>
+        @if (Model != null && Model.Any())
+        {
+            foreach (var dish in Model)
+            {
+                <tr>
+                    <td>@dish.DishName</td>
+                    <td>@dish.Price.ToString("N2")</td>
+                </tr>
+            }
+        }
+        else
+        {
+            <tr>
+                <td colspan="2" class="text-center">No dishes available for this category</td>
+            </tr>
+        }
+    </tbody>
+</table>
+<div class="button-class">
+    <a href="@Url.Action("UserCategoryView", "Restaurant")" class="BackButton">Back</a>
+</div>

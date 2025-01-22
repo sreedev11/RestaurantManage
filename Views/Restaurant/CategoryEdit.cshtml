@@ -1,0 +1,44 @@
+﻿@model RestaurantManage.Models.Category
+
+@{
+    ViewData["Title"] = "Edit Category";
+    Layout = "~/Views/Shared/AdminDashboardLayout.cshtml";
+
+    string? base64Logo = Model.Logo != null ? $"data:image/png;base64,{Convert.ToBase64String(Model.Logo)}" : null;
+}
+<link href="~/css/admineditcategory.css" rel="stylesheet" />
+
+<h2>@ViewData["Title"]</h2>
+
+<form asp-action="CategoryEdit" method="post" enctype="multipart/form-data" class="AdminCategoryEdit-form">
+    @Html.AntiForgeryToken()
+
+    <div class="AdminCategoryEdit-container">
+        <div>
+            <label for="CategoryName">Category Name</label>
+            <input type="text" id="CategoryName" name="CategoryName" value="@Model.CategoryName" required />
+        </div>
+
+        <div>
+            <label for="Logo">Logo</label>
+            <input type="file" id="Logo" name="Logo" accept="image/*" />
+
+            @if (base64Logo != null)
+            {
+                <div class="AdminCategoryEdit-logo-container">
+                    <p>Current Logo:</p>
+                    <img src="@base64Logo" alt="Category Logo" class="AdminCategoryEdit-logo" />
+                </div>
+            }
+            else
+            {
+                <p>No logo currently uploaded for this category.</p>
+            }
+        </div>
+
+        <button type="submit">Update Category</button>
+        <a href="@Url.Action("ViewAllcategory", "Restaurant")" class="AdminCategoryEdit-cancel">Cancel</a>
+
+        @Html.ValidationSummary(true, "", new { @class = "AdminCategoryEdit-validation" })
+    </div>
+</form>

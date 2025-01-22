@@ -1,0 +1,60 @@
+﻿@model IEnumerable<RestaurantManage.Models.PendingReservationViewModel>
+
+@{
+    ViewData["Title"] = "Pending Reservations";
+    Layout = "~/Views/Shared/AdminDashboardLayout.cshtml";
+}
+<link href="~/css/admingetpendingreservations.css" rel="stylesheet" />
+
+<h2>Pending Reservations</h2>
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Phone Number</th>
+            <th>Email Address</th>
+            <th>Reserve Date</th>
+            <th>Reserve Time</th>
+            <th>Number of Persons</th>
+            <th>Table Name</th>
+            <th>Type</th>
+            <th>Amount</th>
+            <th>Created Date</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var reservation in Model)
+        {
+            <tr>
+                <td>@reservation.FirstName</td>
+                <td>@reservation.LastName</td>
+                <td>@reservation.PhoneNumber</td>
+                <td>@reservation.EmailAddress</td>
+                <td>@reservation.ReserveDate.ToString("yyyy-MM-dd")</td>
+                <td>@reservation.ReserveTime</td>
+                <td>@reservation.Number_of_Persons</td>
+                <td>@reservation.Table_Name</td>
+                <td>@reservation.TableType</td>
+                <td>@reservation.Amount</td>
+                <td>@reservation.CreatedDate.ToString("yyyy-MM-dd HH:mm:ss")</td>
+                <td>
+                    <form asp-action="AdminApproveReservation" method="post" style="display:inline;">
+                        <input type="hidden" name="reserveId" value="@reservation.ReserveId" />
+                        <button type="submit" class="btn btn-success">Approve</button>
+                    </form>
+                    <form asp-action="AdminRejectReservation" method="post" style="display:inline;">
+                        <input type="hidden" name="reserveId" value="@reservation.ReserveId" />
+                        <button type="submit" class="btn btn-danger">Reject</button>
+                    </form>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<div class="AllUsers-back-btn-container">
+    <a href="@Url.Action("AdminViewReservationStatusHistory", "Restaurant")" class="AllUsers-register-btn">View Old Reservation Details</a>
+</div>

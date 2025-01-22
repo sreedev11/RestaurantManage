@@ -1,0 +1,42 @@
+﻿@model RestaurantManage.Models.Dish
+
+@{
+    ViewData["Title"] = "Add a New Dish";
+    Layout = "~/Views/Shared/AdminDashboardLayout.cshtml";
+}
+<link href="~/css/inserdish.css" rel="stylesheet" />
+
+
+<h2 class="InsertDishStyle-Heading">@ViewData["Title"]</h2>
+
+<form asp-action="InsertDish" method="post" class="InsertDishStyle-Form">
+    @Html.AntiForgeryToken()
+
+    <div>
+        <label for="DishName" class="InsertDishStyle-Label">Dish Name</label>
+        <input type="text" id="DishName" name="DishName" value="@Model?.DishName" required class="InsertDishStyle-Input" />
+    </div>
+
+    <div>
+        <label for="Price" class="InsertDishStyle-Label">Price</label>
+        <input type="number" id="Price" name="Price" min="0" value="@Model?.Price" required class="InsertDishStyle-Input" />
+    </div>
+
+    <div>
+        <label for="CategoryId" class="InsertDishStyle-Label">Category</label>
+        <select id="CategoryId" name="CategoryId" required class="InsertDishStyle-Select">
+            <option value="">-- Select Category --</option>
+            @foreach (var category in ViewBag.Categories as List<RestaurantManage.Models.Category>)
+            {
+                <option value="@category.Id">@category.CategoryName</option>
+            }
+        </select>
+        <a href="@Url.Action("InsertCategory", "Restaurant")" class="InsertDishStyle-Link">Add new Category</a>
+    </div>
+
+    <button type="submit" class="InsertDishStyle-Button">Add new Dish</button>
+</form>
+
+<div class="InsertDishStyle-LinksContainer">
+    <a href="@Url.Action("ViewAllcategory", "Restaurant")" class="InsertDishStyle-Link">Back</a>
+</div>

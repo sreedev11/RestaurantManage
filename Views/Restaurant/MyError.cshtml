@@ -1,0 +1,17 @@
+﻿@{
+    ViewData["Title"] = "Error";
+}
+
+<h1>Error</h1>
+<p>An error occurred while processing your request.</p>
+
+@if (ViewData["ErrorMessage"] != null)
+{
+    <div class="alert alert-danger">
+        <strong>Error:</strong> @ViewData["ErrorMessage"]
+    </div>
+}
+else
+{
+    <p class="text-muted">No additional details are available.</p>
+}

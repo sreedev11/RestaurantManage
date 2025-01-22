@@ -1,0 +1,103 @@
+﻿@model RestaurantManage.Models.Contact
+@{
+    Layout = "~/Views/Shared/HomeLayout.cshtml";
+}
+
+<div class="contact-container">
+    <div class="contact-details-card">
+        <h2>Contact Details</h2>
+        <p>Sreedev D & Co Pvt Ltd.</p>
+        <p>B-39, 1st Floor</p>
+        <p>Middle Circle, Connaught Place</p>
+        <p>New Delhi-110001, India</p>
+        <p><strong>Support:</strong> 7290068900</p>
+        <p><strong>CIN:</strong> U27205DL2009PTC190441</p>
+    </div>
+
+    <div class="contact-card">
+        <form asp-action="Contact" method="post" id="contactForm">
+            <h2>Contact Us</h2>
+            <div class="Contactpage-form-group">
+                <label asp-for="Name" class="Contactpage-label"></label>
+                <input asp-for="Name" class="Contactpage-input" id="Name" name="Name" required />
+                <span asp-validation-for="Name" class="Contactpage-error"></span>
+            </div>
+            <div class="Contactpage-form-group">
+                <label asp-for="Email" class="Contactpage-label"></label>
+                <input asp-for="Email" class="Contactpage-input" id="Email" name="Email" required />
+                <span asp-validation-for="Email" class="Contactpage-error"></span>
+            </div>
+            <div class="Contactpage-form-group">
+                <label asp-for="PhoneNumber" class="Contactpage-label"></label>
+                <input asp-for="PhoneNumber" class="Contactpage-input" id="PhoneNumber" name="PhoneNumber" required />
+                <span asp-validation-for="PhoneNumber" class="Contactpage-error"></span>
+            </div>
+            <div class="Contactpage-form-group">
+                <label asp-for="Message" class="Contactpage-label"></label>
+                <textarea asp-for="Message" class="Contactpage-input" id="Message" name="Message" required></textarea>
+                <span asp-validation-for="Message" class="Contactpage-error"></span>
+            </div>
+            <button type="submit" class="Contactpage-submit-button">Submit</button>
+        </form>
+    </div>
+</div>
+
+<script>
+    document.getElementById("contactForm").addEventListener("submit", function (e) {
+        var isValid = true;
+        var fields = document.querySelectorAll(".Contactpage-input");
+
+        fields.forEach(function (field) {
+            if (!field.value.trim()) {
+                isValid = false;
+                field.nextElementSibling.textContent = field.name + " is required.";
+            } else {
+                field.nextElementSibling.textContent = "";
+            }
+        });
+
+        if (!isValid) {
+            e.preventDefault(); // Prevent form submission if any field is empty
+        }
+    });
+
+    // On focus out validation
+    var fields = document.querySelectorAll(".Contactpage-input");
+    fields.forEach(function (field) {
+        field.addEventListener("focusout", function () {
+            if (!field.value.trim()) {
+                field.nextElementSibling.textContent = field.name + " is required.";
+            } else {
+                field.nextElementSibling.textContent = "";
+            }
+        });
+    });
+</script>
+
+<style>
+    
+    .contact-container {
+        display: flex;
+        flex-direction: column;
+        margin-top:-30px;
+    }
+
+    .contact-card {
+        padding: 20px;
+        border: 1px solid #ddd;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        background-color: #fff;
+        margin-bottom:-20px;
+    }
+
+    .contact-details-card {
+        padding: 20px;
+        border: 1px solid #ddd;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        background-color: #fff;
+    }
+
+        .contact-details-card h2 {
+            margin-bottom: 15px;
+        }
+</style>

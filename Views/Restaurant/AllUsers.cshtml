@@ -1,0 +1,55 @@
+﻿@model IEnumerable<RestaurantManage.Models.Registration>
+
+@{
+    ViewData["Title"] = "All Registered Users";
+    Layout = "~/Views/Shared/AdminDashboardLayout.cshtml";
+}
+
+<h2 class="AllUsers-heading">@ViewData["Title"]</h2>
+
+<div>
+    <strong>Note:</strong> Below is the list of all registered users and admins.
+</div>
+
+<table class="AllUsers-table">
+    <thead>
+        <tr>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Date of Birth</th>
+            <th>Gender</th>
+            <th>Phone Number</th>
+            <th>Email Address</th>
+            <th>Address</th>
+            <th>Username</th>
+            <th>User Type</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var user in Model)
+        {
+            <tr>
+                <td>@user.FirstName</td>
+                <td>@user.LastName</td>
+                <td>@user.DateOfBirth.ToString("yyyy-MM-dd")</td>
+                <td>@user.Gender</td>
+                <td>@user.PhoneNumber</td>
+                <td>@user.EmailAddress</td>
+                <td>@user.Address</td>
+                <td>@user.Username</td>
+                <td>@user.UserType</td>
+                <td>
+                    <a class="AllUsers-delete-btn" href="@Url.Action("Delete", new { id = user.ID })">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+<div class="AllUserButtonContainer">
+    <div class="AllUserbuttonAlign">
+        <a class="AllUsers-register-btn" href="@Url.Action("RegisterAdmin")">Register New Admin</a>
+        <a class="AllUsers-register-btn" href="@Url.Action("GetRegisteredUsers")">View Only Registered Users</a>
+        <a class="AllUsers-register-btn" href="@Url.Action("GetRegisteredAdmins")">View Only Registered Admins</a>
+    </div>
+</div>

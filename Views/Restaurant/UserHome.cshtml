@@ -1,0 +1,57 @@
+﻿@model Registration
+
+@{
+    Layout = "~/Views/Shared/UserDashboardLayout.cshtml";
+}
+<link href="~/css/userhome.css" rel="stylesheet" />
+
+<h1 class="Welcome-Heading">Welcome, @Model?.FirstName @Model?.LastName!</h1>
+
+<div class="CardContainer">
+    <div class="Card1">
+        <img src="~/images/table.png" class="CardImage" />
+        <div class="ButtonBookClass">
+            <a href="@Url.Action("CreateReservation","Restaurant")" class="ButtonBook">Book a Table</a>
+        </div>
+    </div>
+</div>
+<h1>Our Brand Partners</h1>
+<div class="CardContainer">
+   
+    <div class="Card">
+        <img src="~/images/Bufallo Wild Wings.png" class="CardImage" />
+        <div class="CardContent">
+            <h3 class="CardTitle">Bufallo Wild Wings</h3>
+        </div>
+    </div>
+    <div class="Card">
+        <img src="~/images/BurgerKing.png" class="CardImage" />
+        <div class="CardContent">
+            <h3 class="CardTitle">Burger King</h3>
+        </div>
+    </div>
+    <div class="Card">
+        <img src="~/images/PandaExpress.png" class="CardImage" />
+        <div class="CardContent">
+            <h3 class="CardTitle">Panda Express</h3>
+        </div>
+    </div>
+    <div class="Card">
+        <img src="~/images/Hooters.png" class="CardImage" />
+        <div class="CardContent">
+            <h3 class="CardTitle">Hooters</h3>
+        </div>
+    </div>
+    <div class="Card">
+        <img src="~/images/Wendy's.png" class="CardImage" />
+        <div class="CardContent">
+            <h3 class="CardTitle">Wendy's</h3>
+        </div>
+    </div>
+    <div class="Card">
+        <img src="~/images/Kfc.png" class="CardImage" />
+        <div class="CardContent">
+            <h3 class="CardTitle">KFC</h3>
+        </div>
+    </div>
+</div>

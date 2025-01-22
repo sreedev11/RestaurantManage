@@ -1,0 +1,11 @@
+﻿@model RestaurantManage.Models.ErrorViewModel
+
+<h1>Error</h1>
+<p>An error occurred while processing your request.</p>
+
+@if (Model != null && Model.ShowRequestId)
+{
+    <div class="alert alert-danger">
+        <strong>@Model.RequestId</strong>
+    </div>
+}

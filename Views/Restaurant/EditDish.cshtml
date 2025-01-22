@@ -1,0 +1,37 @@
+﻿@model RestaurantManage.Models.Dish
+@{
+    Layout = "~/Views/Shared/AdminDashboardLayout.cshtml";
+}
+<link href="~/css/editdish.css" rel="stylesheet" />
+
+<h2 class="EditDish-Heading">Edit Dish</h2>
+
+<form asp-action="EditDish" method="post" class="EditDish-Form">
+    <div>
+        <label for="DishName" class="EditDish-Label">Dish Name</label>
+        <input id="DishName" name="DishName" value="@Model.DishName" placeholder="Enter dish name" class="EditDish-Input" />
+    </div>
+
+    <div>
+        <label for="Price" class="EditDish-Label">Price</label>
+        <input id="Price" name="Price" type="number" value="@Model.Price" placeholder="Enter price" class="EditDish-Input" />
+    </div>
+
+    <div>
+        <label for="CategoryId" class="EditDish-Label">Category</label>
+        <select id="CategoryId" name="CategoryId" class="EditDish-Select">
+            <option value="">-- Select Category --</option>
+            @foreach (var category in ViewBag.Categories)
+            {
+                <option value="@category.Id" selected="@((category.Id == Model.CategoryId) ? "selected" : "")">
+                    @category.CategoryName
+                </option>
+            }
+        </select>
+    </div>
+
+    <input type="hidden" name="Id" value="@Model.Id" />
+
+    <button type="submit" class="EditDish-Button">Save</button>
+    <a asp-action="ViewAllCategory" class="EditDish-CancelLink">Cancel</a>
+</form>
