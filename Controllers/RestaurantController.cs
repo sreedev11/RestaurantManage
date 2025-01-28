@@ -2,6 +2,7 @@
 using RestaurantManage.Repositories;
 using RestaurantManage.Models;
 using NuGet.Protocol.Core.Types;
+using System.Collections.Immutable;
 
 namespace RestaurantManage.Controllers
 {
@@ -14,6 +15,7 @@ namespace RestaurantManage.Controllers
         private readonly ReservationRepository _reservationRepository;
         private readonly DishRepository _dishRepository;
         private readonly AddTableRepository _addTableRepository;
+        private readonly CancelledTableRepository _cancelledTableRepository;
 
         public RestaurantController(RegistrationRepository registrationRepository, 
             LoginRepository loginRepository,
@@ -21,7 +23,8 @@ namespace RestaurantManage.Controllers
             CategoryRepository categoryRepository,
             ReservationRepository reservationRepository,
             DishRepository dishRepository,
-            AddTableRepository addTableRepository)
+            AddTableRepository addTableRepository,
+            CancelledTableRepository cancelledTableRepository)
         {
             _registrationRepository = registrationRepository;
             _loginRepository = loginRepository;
@@ -30,6 +33,7 @@ namespace RestaurantManage.Controllers
             _reservationRepository = reservationRepository;
             _dishRepository = dishRepository;
             _addTableRepository = addTableRepository;
+            _cancelledTableRepository = cancelledTableRepository;
         }
         //Main Home Page
         public IActionResult Home()
@@ -41,7 +45,10 @@ namespace RestaurantManage.Controllers
         {
             return View();
         }
-        //Contact 
+        /// <summary>
+        /// Contact 
+        /// </summary>
+        /// <returns></returns>
         public IActionResult Contact()
         {
             return View();
@@ -95,7 +102,10 @@ namespace RestaurantManage.Controllers
                 return View("MyError");
             }
         }
-        //get :All Users
+        /// <summary>
+        /// get :All Users
+        /// </summary>
+        /// <returns></returns>
         public IActionResult AllUsers()
         {
             try
@@ -109,7 +119,11 @@ namespace RestaurantManage.Controllers
                 return View("MyError");
             }
         }
-        //View for seeing deleting users datails
+        /// <summary>
+        /// View for seeing deleting users datails
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         public IActionResult Delete(int id)
         {
             try
@@ -127,7 +141,10 @@ namespace RestaurantManage.Controllers
                 return View("MyError");
             }
         }
-        // GET: User Registration Page
+        /// <summary>
+        /// GET: User Registration Page
+        /// </summary>
+        /// <returns></returns>
         public IActionResult RegisterUser()
         {
             try
@@ -144,6 +161,11 @@ namespace RestaurantManage.Controllers
                 return View("MyError");
             }
         }
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="registration"></param>
+        /// <returns></returns>
         // POST: Register User
         [HttpPost]
         [ValidateAntiForgeryToken]
@@ -274,7 +296,8 @@ namespace RestaurantManage.Controllers
         }
         public IActionResult Logout()
         {
-            HttpContext.Session.Clear();  
+            HttpContext.Session.Clear();
+            HttpContext.Response.Cookies.Delete(".AspNetCore.Cookies");
             return RedirectToAction("Login", "Restaurant");
         }
         // Admin Home
@@ -381,7 +404,6 @@ namespace RestaurantManage.Controllers
                 return View("MyError");
             }
         }
-
         // Edit Admin
         public IActionResult EditAdmin()
         {
@@ -894,7 +916,9 @@ namespace RestaurantManage.Controllers
         {
             try
             {
+                var CancelledTableDetails=_cancelledTableRepository.GetCancelledAmountByReserveId(reserveId);
                 _reservationRepository.CancelReservation(reserveId);
+                _cancelledTableRepository.InsertCancelledRecord(CancelledTableDetails.ID, CancelledTableDetails.Amount);
                 return RedirectToAction("UserReservationStatus");
             }
             catch (Exception ex)
@@ -903,6 +927,17 @@ namespace RestaurantManage.Controllers
                 return View("MyError");
             }
         }
+        public ActionResult ViewCancelledRecords()
+        {
+            int? id = HttpContext.Session.GetInt32("UserID");
+            if (id == null)
+            {
+                return RedirectToAction("Login", "Restaurant");
+            }
+            var cancelledRecords = _cancelledTableRepository.GetCancelledRecordsById(id.Value);
+            return View(cancelledRecords);
+        }
+
         public IActionResult MyError()
         {
             ViewData["ErrorMessage"] = "An unexpected error occurred.";
