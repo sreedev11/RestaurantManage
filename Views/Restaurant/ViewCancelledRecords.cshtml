@@ -1,0 +1,36 @@
+﻿@model List<CancelledTable>
+@{
+    Layout = "~/Views/Shared/UserDashboardLayout.cshtml";
+}
+<link href="~/css/viewcancelledrecords.css" rel="stylesheet" />
+
+    <div class="table-container">
+        <div class="header">
+            <h2>Booking Cancellations</h2>
+        </div>
+        @if (Model != null && Model.Any())
+        {
+            <table>
+                <thead>
+                    <tr>
+                        <th>Amount Credited</th>
+                        <th>Transaction Date</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var record in Model)
+                    {
+                        <tr>
+                            <td>@record.Amount</td>
+                            <td>@record.CreatedDate.ToString("yyyy-MM-dd HH:mm:ss")</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        }
+        else
+        {
+            <p>No records found for the given ID.</p>
+        }
+    </div>
+
